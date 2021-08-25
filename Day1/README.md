@@ -64,6 +64,7 @@
 5.2 메모리는 byte로 형성 (8bit = 1byte)
 
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fua4eU%2Fbtrc6SBCbrK%2FPLLuhBfmd3jdGwxQg9YMo1%2Fimg.png">
+
 ## **6. 타입 변환**
 
 6.1 자동 타입 변환 - 작은 크기 타입은 큰 크기 타입으로 자동으로 변환된다.
