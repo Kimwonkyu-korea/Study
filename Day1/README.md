@@ -62,6 +62,7 @@
 5.1 정수, 실수 ,문자, 논리 리터럴을 직접 저장하는 타입이다.
 
 5.2 메모리는 byte로 형성 (8bit = 1byte)
+
 <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fua4eU%2Fbtrc6SBCbrK%2FPLLuhBfmd3jdGwxQg9YMo1%2Fimg.png">
 ## **6. 타입 변환**
 
