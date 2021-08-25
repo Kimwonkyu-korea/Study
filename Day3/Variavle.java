@@ -1,5 +1,5 @@
 
-public class MainClass {
+public class Variavle {
 
 	public static void main(String[] args) {
 		
