@@ -104,13 +104,13 @@ int ArrNumPos[] = ArrayNumberPosition;
 
 
 - **숫자(Integer) -> 문자열(String)**
-
+```
        int number = 123; 
        String s = number + ""; 	// 문자열
         		
        Integer inumber = 123; 
        String s1 = inumber.toString();
-       
+```     
 - **문자열(String) -> 숫자(Integer)**
 ```
     String strNum = "1024";
