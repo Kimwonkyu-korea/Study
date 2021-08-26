@@ -112,14 +112,15 @@ int ArrNumPos[] = ArrayNumberPosition;
        String s1 = inumber.toString();
        
 - **문자열(String) -> 숫자(Integer)**
-
+```
     String strNum = "1024";
     int num = Integer.parseInt(strNum); 
     System.out.println(num * 2);
-
+```
 
 - **문자열(String) -> 실수(Double)**
-
+```
     String strNumber = "123.4567";
     double dnum = Double.parseDouble(strNumber);	// 실수
     System.out.println(dnum);
+```
