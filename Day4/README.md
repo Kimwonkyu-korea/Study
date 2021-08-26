@@ -125,10 +125,10 @@ int ArrNumPos[] = ArrayNumberPosition;
     System.out.println(dnum);
 ```
 
-##  Calendar & Date
+#  Calendar & Date
 
 
-#  **1. Calendar(캘린더)**
+##  **1. Calendar(캘린더)**
 
 **오늘 날짜를 취득(MONTH = 0~11)**
 ```
