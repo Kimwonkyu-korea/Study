@@ -31,37 +31,34 @@ EX) int Array[ ] = new int[10];
 **배열의 초기화**
 
 - initialize
-
+```
 int Array[] =  **null**;
-
+```
 - value initialize  
+```
 int Array[] = {10, 20, 30, 40, 50, 60};
-
+```
 
 **char 배열에서 확인하기**
-
+```
 char charArray1[] = { 'W', 'o', 'r', 'l', 'd' };
-
-  
 
 System.out.println(charArray1[0] + charArray1[1] + charArray1[2] + charArray1[3] + charArray1[4]);  
 **520 // ASCII 아스키 코드로 출력**
 
-  
-
 System.out.println(  **" "**  + charArray1[0] + charArray1[1] + charArray1[2] + charArray1[3] + charArray1[4]);
-
+```
 
 **배열 복사**  
+```
 int arrayNum[] = { 11, 22, 33 };  
 int arrayCopy[] = arrayNum;
-
-  
 
 **같은 메모리 사용한다.**
 
 int ArrayNumberPosition[] = { 1, 2, 3, 4, 5, };  
 int ArrNumPos[] = ArrayNumberPosition;
+```
 
 ## 연산자 
 <img src ="https://blog.kakaocdn.net/dn/yzqJr/btrdeWYQGLw/uqxjBeYEY7wNoxjHFUtFP1/img.png" width="400" height="250">
