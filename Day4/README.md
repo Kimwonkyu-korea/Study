@@ -117,6 +117,7 @@ int ArrNumPos[] = ArrayNumberPosition;
     int num = Integer.parseInt(strNum); 
     System.out.println(num * 2);
 
+
 - **문자열(String) -> 실수(Double)**
 
     String strNumber = "123.4567";
