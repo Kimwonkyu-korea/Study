@@ -65,7 +65,7 @@ int ArrNumPos[] = ArrayNumberPosition;
 
 ## 연산자 
 <img src ="https://blog.kakaocdn.net/dn/yzqJr/btrdeWYQGLw/uqxjBeYEY7wNoxjHFUtFP1/img.png" width="400" height="250">
-```
+
 
 
 ## 타입 변환의 종류
