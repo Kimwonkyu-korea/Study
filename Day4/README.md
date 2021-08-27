@@ -31,37 +31,34 @@ EX) int Array[ ] = new int[10];
 **배열의 초기화**
 
 - initialize
-
+```
 int Array[] =  **null**;
-
+```
 - value initialize  
+```
 int Array[] = {10, 20, 30, 40, 50, 60};
-
+```
 
 **char 배열에서 확인하기**
-
+```
 char charArray1[] = { 'W', 'o', 'r', 'l', 'd' };
-
-  
 
 System.out.println(charArray1[0] + charArray1[1] + charArray1[2] + charArray1[3] + charArray1[4]);  
 **520 // ASCII 아스키 코드로 출력**
 
-  
-
 System.out.println(  **" "**  + charArray1[0] + charArray1[1] + charArray1[2] + charArray1[3] + charArray1[4]);
-
+```
 
 **배열 복사**  
+```
 int arrayNum[] = { 11, 22, 33 };  
 int arrayCopy[] = arrayNum;
-
-  
 
 **같은 메모리 사용한다.**
 
 int ArrayNumberPosition[] = { 1, 2, 3, 4, 5, };  
 int ArrNumPos[] = ArrayNumberPosition;
+```
 
 ## 연산자 
 <img src ="https://blog.kakaocdn.net/dn/yzqJr/btrdeWYQGLw/uqxjBeYEY7wNoxjHFUtFP1/img.png" width="400" height="250">
@@ -123,4 +120,62 @@ int ArrNumPos[] = ArrayNumberPosition;
     String strNumber = "123.4567";
     double dnum = Double.parseDouble(strNumber);	// 실수
     System.out.println(dnum);
+```
+
+#  Calendar & Date
+
+
+##  **1. Calendar(캘린더)**
+
+**오늘 날짜를 취득(MONTH = 0~11)**
+```
+int year = cal.get(Calendar.YEAR);
+int month = cal.get(Calendar.MONTH) + 1;	// 0 ~ 11
+int day = cal.get(Calendar.DATE);
+		
+System.out.println(year + "년 " + month + "월 " + day + "일");
+```
+
+**- 날짜 설정**
+```
+cal.set(Calendar.YEAR, 2022);
+cal.set(Calendar.MONTH, 12 -1 );
+cal.set(Calendar.DATE, 31);
+		
+year = cal.get(Calendar.YEAR);
+month = cal.get(Calendar.MONTH) + 1;
+day = cal.get(Calendar.DATE);
+		
+System.out.println(year + "년 " + month + "월 " + day + "일");.
+```
+  
+**- 오전: 0, 오후: 1**
+```
+int ampm = cal.get(Calendar.AM_PM);
+System.out.println(ampm);
+```
+**- 요일 -> 1(일) ~ 7(토) 표기**
+```
+int weekday =cal.get(Calendar.DAY_OF_WEEK);
+System.out.println(weekday);
+```
+
+**- 마지막날 일수( 31, 30, 28, 29 )찾기**
+```
+int lastday = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+System.out.println(lastday);
+```
+#### **2. Date**
+
+**- 현재 날짜 시간 구하기**
+```
+Date today = new Date();
+System.out.println(today);
+```
+
+**- 오늘 날짜를 yyyy-MM-dd 형태로 반환**
+```
+SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+String result = df.format(today);
+System.out.println(result);
 ```
