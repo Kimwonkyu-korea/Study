@@ -170,3 +170,69 @@ do {
 	연산식
 }while(조건식);
 ```
+
+#### **1. break**
+**1.1 반복문을 빠져 나가지 않으면서 다음 반복으로 진행한다.**  
+  
+**1.2 for문과 while, do-while문에서 사용된다.**  
+  
+**1.3 for문은 증감식, while과 do-while문은 조건식으로 이동한다.***
+```
+for(int i = 0; i < 10; i++){
+	if(조건){
+		break;
+	}
+}
+```
+
+**- 배열에서 문자 찾기**
+```
+char cArray[] = { 'a', 'b', 'c', 'd'};
+		
+for(int i = 0; i < cArray.length; i++) {
+	System.out.println("i = " + i);
+	if(cArray[i] == 'c') {
+		System.out.println("c를 찾았습니다.");
+		break;
+	}
+}
+```
+
+**- 특정 지점에서 break**
+```
+int array[] = { 11, 22, 33 ,44 ,55 };
+
+for(int num : array) {
+	System.out.println(num);
+	if(num == 22) {
+		break;
+	}
+}
+```
+
+#### **2. continue**
+
+**6.1 반복문 하나를 완전하게 빠져 나갈 때 사용한다.**  
+  
+**6.2 중첩 반복문일 때 가장 근접한 반복문 중괄호{}만 빠져나간다.**
+
+**- Ex) 숫자 입력 5개**  
+**조건: 음수를 입력받으면 안된다**
+
+```
+int number;
+int loop = 0;
+		
+while(loop < 5) {
+	System.out.print((loop + 1) + "번째 수 = ");
+			
+	number = sc.nextInt();
+			
+	if(number < 0) {
+		System.out.println("음수를 입력하셨습니다. 다시 입력해 주세요");
+		continue;
+	}
+			
+	loop++;
+}
+```
