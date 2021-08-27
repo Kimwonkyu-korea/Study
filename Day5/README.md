@@ -176,7 +176,7 @@ do {
   
 **5.2 for문과 while, do-while문에서 사용된다.**  
   
-**5.3 for문은 증감식, while과 do-while문은 조건식으로 이동한다.***
+**5.3 for문은 증감식, while과 do-while문은 조건식으로 이동한다.**
 ```
 for(int i = 0; i < 10; i++){
 	if(조건){
