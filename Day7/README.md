@@ -7,8 +7,8 @@
 ```
 for (int i = 0; i <= 7; i++) {		// i = 0 ~ 7
 
-		for (int j = 0; j <= 7; j++) {	// j = 0 ~ 7
-		    System.out.print("★");
+	for (int j = 0; j <= 7; j++) {	// j = 0 ~ 7
+		System.out.print("★");
 		}
 		System.out.println("");
 }
@@ -20,10 +20,10 @@ for (int i = 0; i <= 7; i++) {		// i = 0 ~ 7
 ```
 for (int i = 7; i >= 0; i--) {		// i = 7 ~ 0 
 
-		for (int j = i; j <= 7; j++) {	// j = i ~ 7
-				System.out.print("★");
-		}
-		System.out.println("");
+	for (int j = i; j <= 7; j++) {	// j = i ~ 7
+		System.out.print("★");
+	}
+	System.out.println("");
 }
 ```
 
@@ -32,10 +32,10 @@ for (int i = 7; i >= 0; i--) {		// i = 7 ~ 0
 ```
 for (int i = 0; i <= 7; i++) {		// i = 0 ~ 7
 
-		for (int j = i; j <= 7; j++) {  // j = i ~ 7
-				System.out.print("★");
-		}
-		System.out.println("");
+	for (int j = i; j <= 7; j++) {  // j = i ~ 7
+		System.out.print("★");
+	}
+	System.out.println("");
 }
  ```
  
