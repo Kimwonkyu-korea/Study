@@ -51,10 +51,18 @@ String strArr[][] = {
 **3. 맨 앞 자리를 제외한 나머지 값들 중 최솟값을 찾아 위와 같은 방법으로 반복한다.**
 
 - **in 숫자 : 5 1 4 2 3**
+
+
 ![캡처2](https://user-images.githubusercontent.com/83902559/131347083-b4d736d0-94f8-4e90-a03c-2024371ff919.PNG)
 
+
+
 - **오름차순 : 1 2 3 4 5**
+
+
 ![캡처3](https://user-images.githubusercontent.com/83902559/131347122-7ff01d16-2a87-4637-84a2-452fd6d6b8ce.PNG)
+
+
 
 - **오름차순 +swap(교환)**
 ```
@@ -65,7 +73,11 @@ if(numbers[i] > numbers[j]) {  	// 오름
 ```
 
 - **내림차순  : 5 4 3 2 1**
+
+
 ![캡처4](https://user-images.githubusercontent.com/83902559/131347277-8c02478c-bba2-4404-a683-ba16acdad0a1.PNG)
+
+
 
 - **내림차순 + swap(교환)**
 ```
