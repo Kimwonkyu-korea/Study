@@ -28,7 +28,7 @@ static void method(int i, char c) {
 <img src = "https://blog.kakaocdn.net/dn/PUuEX/btrdzNVY8ne/YGMu5eTCl3WGqNxdjQoDz0/img.png">
 
 
-### **2. 에러가 뜨는 경우*
+### **2. 에러가 뜨는 경우**
 
 **2.1 매개변수는 같고 인수만 다를 경우**
 ```
