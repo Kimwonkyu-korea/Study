@@ -187,7 +187,7 @@ newfile.delete();
 
 # fileWrite & fileRead
 
-### **1. fileWrite**
+## **1. fileWrite**
 
 **1.1 쓰기**
 ```
@@ -218,7 +218,7 @@ FileWriter fw = new FileWriter(file);
 	fw.close();
 ```
 
-#### **2. fileRead**
+## **2. fileRead**
 
 ### **2.1 한 글자씩 읽기**
 ```
