@@ -25,6 +25,7 @@ static void method(int i, char c) {
 ```
 
 **1.1 출력 화면**
+
 <img src = "https://blog.kakaocdn.net/dn/PUuEX/btrdzNVY8ne/YGMu5eTCl3WGqNxdjQoDz0/img.png">
 
 
@@ -219,7 +220,7 @@ FileWriter fw = new FileWriter(file);
 
 #### **2. fileRead**
 
-**2.1 한 글자씩 읽기**
+### **2.1 한 글자씩 읽기**
 ```
 FileReader fr = new FileReader(file);
 	int ch;
@@ -230,7 +231,7 @@ FileReader fr = new FileReader(file);
 	fr.close();
 ```
 
-**2.2 한 문장씩 읽기**
+### **2.2 한 문장씩 읽기**
 ```
 FileReader fr = new FileReader(file);
 	BufferedReader br = new BufferedReader(fr);
