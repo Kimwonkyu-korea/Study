@@ -133,6 +133,6 @@ public MyClass(int i) {
 
 **3.1 프로그램을 실행 하기 위해 초기 데이터 값을 인가한다.**
 
-**3.2 삭제(DELETE),  **수정(UPDATE)은  **조회(READ)로부터 시작된다.**
+**3.2 삭제(DELETE), 수정(UPDATE)은 조회(READ)로부터 시작된다.**
 
 
