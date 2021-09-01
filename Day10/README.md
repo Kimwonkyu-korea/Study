@@ -5,7 +5,7 @@
 <img src = "https://blog.kakaocdn.net/dn/cB5fDX/btrdOX3OrLb/q8rNUIadxyLUb9PntUZxzK/img.png">
 
 
-**1. OOP(객체지향) 특성**
+### **1. OOP(객체지향) 특성**
 
 **1.1 은닉성(캡슐화)**  
 - **변수를 외부에 노출하는 규칙**
@@ -19,7 +19,7 @@
 
   
 
-**2. 접근 지정자**
+### **2. 접근 지정자**
 
   
 **2.1 private : 개인적인**
@@ -37,19 +37,19 @@
 
 **3.1 this**
 
-**- 자기 자신의 주소를 참조한다.**
+- **자기 자신의 주소를 참조한다.**
 
-**- Heap 영역의 주소이다.**
+- **Heap 영역의 주소이다.**
 
-**- 생성자에서 다른 생성자를 호출할 경우 사용한다.**
+- **생성자에서 다른 생성자를 호출할 경우 사용한다.**
 
-**- 변수와 매개변수 구분한다.**
+- **변수와 매개변수 구분한다.**
 
 
 # Constructor(생성자)
 
 
-**1. Constructor의 특성**
+### **1. Constructor의 특성**
 
 **1.1 생성자**  
 **1.2 초기화 함수(메소드)**
@@ -61,9 +61,9 @@
 **1.8 생략이 가능하다.**
 
 
-**# code**
+### **# code**
 
-**- MyClass()**
+- **MyClass()**
 ```
 public MyClass() {	// 많이 사용
 	System.out.println("MyClass MyClass()");
@@ -111,7 +111,7 @@ public MyClass(int i) {
 
 # DAO , DTO
 
-**1. DTO ( Data Transfer Object )**
+### **1. DTO ( Data Transfer Object )**
 
 **1.1 VO ( Value Object )**
 
@@ -121,7 +121,7 @@ public MyClass(int i) {
 
   
 
-**2. DAO ( Data Access Object )**
+### **2. DAO ( Data Access Object )**
 
 **2.1 DB를 사용해 데이터를 조회하거나 조작하는 기능을 활용할 수 있다.**
 
@@ -129,7 +129,7 @@ public MyClass(int i) {
 
   
 
-#### **3. 학생정보 관리 프로그램**
+### **3. 학생정보 관리 프로그램**
 
 **3.1 프로그램을 실행 하기 위해 초기 데이터 값을 인가한다.**
 
