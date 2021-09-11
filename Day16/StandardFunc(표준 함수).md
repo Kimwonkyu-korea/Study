@@ -1,0 +1,149 @@
+# StandardFunc(표준 함수)
+
+## DUAL TABLE : 가상 테이블 -> 결과확인 테이블
+
+
+
+### 1. 문자 함수
+- **CHR( NUMNER )**  :  ASCII 값을 문자로 변환  A == 65
+
+```sql
+SELECT CHR(65) FROM DUAL;
+```
+
+- **CONCAT**
+
+```sql
+SELECT CONCAT('HELLO', 'WORLD') FROM DUAL;
+```
+
+- **LPAD(RPAD)** :  총칸 수의 빈칸을 지정문자(빈문자)로 채운다
+
+```sql
+SELECT LPAD('BBB', 10, '0') FROM DUAL;
+```
+
+- **INSTR**  : java에서 indexOf와 같음
+
+```sql
+SELECT INSTR('123ABC456DEFABCABC', 'A', 6, 2) FROM DUAL;
+```
+
+- **REPLACE** : 문자열 치환
+
+```sql
+SELECT REPLACE('AAAAABCD', 'AA', 'a') FROM DUAL;
+```
+
+- **SUBSTR** 
+
+```sql
+SELECT SUBSTR('ABCDE', 3, 1)FROM DUAL;
+```
+
+
+
+### 2. 숫자
+
+- 올림
+
+```sql
+SELECT CEIL(13.1) FROM DUAL;
+```
+
+- 내림
+
+```sql
+SELECT FLOOR(13.9) FROM DUAL;
+```
+
+- 나눈 나머지
+
+```sql
+SELECT MOD(3, 2) FROM DUAL;
+```
+
+- 승수 
+
+```sql
+SELECT POWER(3, 2) FROM DUAL;
+```
+
+- 반올림
+
+```sql
+SELECT ROUND(13.5) FROM DUAL;
+```
+
+- 부호 1, 0, -1
+
+```sql
+SELECT SIGN(13.4) FROM DUAL;
+SELECT SIGN(0) FROM DUAL;
+SELECT SIGN(-0.1) FROM DUAL;
+```
+
+- 버림(소수)
+
+```sql
+SELECT TRUNC(123.4567, 1) FROM DUAL;
+SELECT TRUNC(123.4567, -1) FROM DUAL;
+```
+
+- 변환함수 : TO_CHAR = DATE
+
+```sql
+SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD-HH-MI-SS') FROM DUAL;
+SELECT TO_CHAR(1000000,'$999,999,999') FROM DUAL; -- 달러로 표현
+```
+
+- TO_DATE
+
+```sql
+SELECT TO_DATE ('20210909', 'YYYYMMDD') FROM DUAL;
+```
+
+- TO_NUMBER
+
+```sql
+SELECT TO_NUMBER('12345') + 45 FROM DUAL
+```
+
+- LAST_DAY
+
+```sql
+SELECT LAST_DAY('21/09/09') FROM DUAL;
+SELECT LAST_DAY (TO_DATE('211012', 'YYMMDD'))FROM DUAL;
+```
+
+- 년도, 월, 일, 시, 분, 초
+
+```sql
+SELECT SYSDATE ,
+    EXTRACT(YEAR FROM SYSDATE),
+    EXTRACT(MONTH FROM SYSDATE),
+    EXTRACT(DAY FROM SYSDATE),
+    EXTRACT(HOUR FROM CAST(SYSDATE AS TIMESTAMP)),
+    EXTRACT(MINUTE FROM CAST(SYSDATE AS TIMESTAMP)),
+    EXTRACT(SECOND FROM CAST(SYSDATE AS TIMESTAMP))
+FROM DUAL;
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
