@@ -1,11 +1,11 @@
 /*
-    DRDER BY == Sorting(¡§∑ƒ)
+    ORDER BY == Sorting(Ï†ïÎ†¨)
     
     SELECT COLUMN VALUE SUBQUERY
     FROM TABLE SUBQUERY
     WHERE 
     
-    ORDER BY COLUMN (ASC(ø¿∏ß), DESC(≥ª∏≤))
+    ORDER BY COLUMN (ASC(Ïò§Î¶Ñ), DESC(ÎÇ¥Î¶º))
     
 */
 
@@ -31,8 +31,8 @@ FROM employees
 ORDER BY JOB_ID;
 
 /*
-    GROUP BY : ±◊∑Ï¿∏∑Œ π≠¥¬ ±‚¥…
-    HAVING : π≠æ˙¿ª ∂ß ¡∂∞«
+    GROUP BY : Í∑∏Î£πÏúºÎ°ú Î¨∂Îäî Í∏∞Îä•
+    HAVING : Î¨∂ÏóàÏùÑ Îïå Ï°∞Í±¥
 */
 
 SELECT DISTINCT JOB_ID
@@ -43,7 +43,7 @@ FROM employees
 GROUP BY JOB_ID;
 
 /*
-     ≈Î∞Ë - GROUP FUNCTION 
+     ÌÜµÍ≥Ñ - GROUP FUNCTION 
      COUNT 
      SUM 
      AVG
