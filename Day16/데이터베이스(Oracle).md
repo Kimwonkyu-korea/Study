@@ -96,7 +96,7 @@ SELECT 검색대상 FROM 테이블명;
 
 
 
-**4. TCL ( Transaction Control Language ) : 데이터 조작어에 의해 변경 된 내용 저장**
+**3. TCL ( Transaction Control Language ) : 데이터 조작어에 의해 변경 된 내용 저장**
 
 ● COMMIT : 변경 된 내용을 영구적으로 저장 
 
@@ -106,7 +106,7 @@ SELECT 검색대상 FROM 테이블명;
 
 
 
-**5. DCL( Data Control Language ) : 데이터 제어어**
+**4. DCL( Data Control Language ) : 데이터 제어어**
 
 데이터에 대한 접근 권한 부여 등의 데이터베이스 시스템의 트랜잭션을 관리하기 위한 목적으로 사용하는 언어
 
