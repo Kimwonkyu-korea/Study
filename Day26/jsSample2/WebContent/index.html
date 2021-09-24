@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- 
+날짜 시간을 설정 
+Calendar()
+Date()
+-->
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+function displayDate() {
+	document.getElementById("demo").innerHTML = Date();
+}
+
+// displayDate();
+setInterval("displayDate()", 1000);
+
+</script>
+
+<br><br>
+
+<p id="date"></p>
+
+<script type="text/javascript">
+
+let date = new Date(); 	// 현재 날짜시간
+
+date = new Date(2021, 12-1 , 3, 6, 25, 10, 0);	// 달은 0~11
+
+date = new Date("October 12, 2021 12:35:35"); //2021/10/12
+
+document.getElementById("date").innerHTML = date;
+
+document.getElementById("date").innerHTML = date.getDay(); // 요일
+document.getElementById("date").innerHTML = date.getFullYear(); // 년
+document.getElementById("date").innerHTML = date.getMonth() + 1; // 달
+document.getElementById("date").innerHTML = date.getDate(); // 날짜
+document.getElementById("date").innerHTML = date.getHours(); // 시
+document.getElementById("date").innerHTML = date.getMinutes(); // 분
+document.getElementById("date").innerHTML = date.getSeconds(); // 초
+</script>
+
+
+</body>
+</html>

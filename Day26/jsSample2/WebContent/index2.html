@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- div는 개행 O span은 개행 X -->
+
+<div style="background-color: #0000ff; color: white; text-align: center; border-style: double; border-color: red; font-family: MS PGothic; font-style: italic; font-size: 24pt;">Hello CSS</div>
+
+<div id="cssset">Hello JS CSS</div>
+
+<button type="button" onclick="func()">버튼</button>
+
+<!-- 
+<span>Hello CSS</span>
+
+<span>Hello JS CSS</span>
+ -->
+ 
+<script type="text/javascript">
+function func() {
+	// div태그로 접근한다.
+	let obj = document.getElementById("cssset");
+
+	obj.style.backgroundColor = '#ff0000';
+	obj.style.color = '#ffffff';
+	obj.style.textAlign = 'center';
+	obj.style.borderStyle = 'double';
+	obj.style.borderColor = 'blue';
+	obj.style.fontFamily = 'Times New Roman';
+	obj.style.fontStyle = 'italic';
+	obj.style.fontSize = '20pt';
+	
+}
+
+</script>
+ 
+ 
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+		JavaScript != Java
+		Client쪽의 언어. front end
+		목적: 웹 브라우저의 Tag들을 접근하기 위한 스크립트.
+			 보조 프로그래밍 언어이다.
+			 컴파일을 하지 않는다 -> 가볍다 -> 속도가 빠르다.
+			 
+		JavaScript 간략화, 경량화 -> JQuery(Ajax) -> Vue, React
+		
+		예) 회원가입 -> 빈칸을 조사. ID 글자수를 조사. PW에 숫자, 문자를 포함
+			CSS에 대해서 제어, 구현
+			Timer를 설정해서 특수효과 같은 처리가 가능
+			
+		class
+		function
+		
+		element(요소)
+		id		-> 현 웹페이지에서 1개 유효. JS용
+		class	-> 다수의 Tag에 적용이 가능. CSS
+		name	-> 다수의 Tag에 적용이 가능. 값을 전달
+ -->
+ 
+ <p id="demo">p태그입니다</p>
+ 
+ <script type="text/javascript">
+ // 여기가 JS영역
+ /*
+ 	주석문
+ */
+ console.log('Java Script가 실행되었음');
+ 
+// alert('Java Script가 실행되었음')  팝업창
+
+var v = document.getElementById("demo").innerHTML;
+// alert(v)
+
+document.getElementByID("demo").innerHTML = "p tag id demo"; // setter
+ 
+ </script>
+
+</body>
+</html>

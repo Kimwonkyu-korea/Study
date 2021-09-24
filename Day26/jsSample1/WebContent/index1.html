@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+변수(Variavle) 
+
+<p id="demo">p tag</p>
+
+<script type="text/javascript">
+/*
+	Integer, Double, String, Object, MyClass
+	
+	Integer in = 234;
+	String str = "hello";
+	String str = new String("hello");
+	MyClass cls = new MyClass();
+	
+	Object cls = new MyClass();
+	Object cls = new YouClass();
+	
+
+	var num = 123;
+	var pi = 3.141592;
+	var name = "홍길동";
+	var str = '안녕하세요'; 
+	
+	var num = 234;
+	alert(num);
+
+	
+	let num = 123;
+	
+	let num = 234;
+	alert(num);
+*/	
+	
+	let num = 123;
+	let pi = 3.141592;
+	let name = "홍길동";
+	let answer = true;
+	
+	num = num + 234;
+	console.log(num);
+	
+	// Array
+//	let cars = []; 
+	let cars = [ "Saab", "Volvo", "BMW"];
+	console.log(cars[1]);
+	
+	cars = new Array(3);	// String cars[] = new String[3];
+	cars[0] = "사브";
+	cars[1] = "볼보";
+	cars[2] = "비엠더블유";
+	console.log(cars[2]);
+	
+	for(let i=0; i < cars.length; i++) {	// let 생략가능
+		console.log(cars[i]);
+	}
+	
+	// foreach
+	for(car in cars) {	// let 생략, : -> in
+		console.log(cars[car]);
+	}
+	
+ 	// Object 
+ 	let obj = {
+ 			firstname: '길동',	// key:value -> hashmap(Java) == Json(Web)
+ 			lastname: '홍',
+ 			age:24,
+ 			func : function(){
+ 				console.log("func 함수호출");
+ 				console.log(this.lastname + this.firstname);	// this 
+ 			},
+ 			method:function(a,b){
+ 				this.age = a;
+ 			}
+ 	
+ 	}
+	console.log(obj.firstname);
+	console.log(obj.age);
+	obj.func();
+	
+	class Person{
+		constructor(name, age){	// 매개변수
+			this.name = name;	
+			this.age = age;
+		}
+		allprint(){
+			console.log(this.name + " " + this.age);
+		}
+	}
+	
+	let pobj = new Person("일지매", 22);
+	console.log(pobj.name);
+	console.log(pobj.age);
+	
+	
+</script>
+
+
+
+
+
+</body>
+</html>

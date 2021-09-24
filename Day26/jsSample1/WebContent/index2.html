@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript" src="myJS.js"></script>
+<!-- 
+<script type="text/javascript">
+function inputBtn() {
+	let num = document.getElementById("num").value;
+	
+	document.getElementById("out").value = parseInt(num) * 2;
+	
+	// String -> Integer = Integer.parseInt("123");
+}
+</script>
+ -->
+
+</head>
+<body>
+
+<p id="demo">p tag id demo</p> <!-- 일반태그(output) h1 ~ h6, pre, div-->
+
+<h3 id = "demo">h3 tag id demo</h3>
+
+<!--form태그 output, input-->
+<input type="text" id="text" value="" size="20" placeholder="여기입력">
+<br>
+
+
+
+<input type="button" value="버튼" onclick="btnclick()">
+
+<script type="text/javascript">
+function btnclick(){
+//	alert('btnclick()');
+	
+	document.getElementById("demo").innerHTML = "버튼 클릭!";
+	
+	let val = document.getElementById("text").value;
+//	alert(val);
+	
+	document.getElementById("demo").innerHTML = val;
+}
+
+</script>
+
+<br><br>
+
+<h3>입력한 숫자를 2배증가시켜 출력하시오</h3>
+입력:<input type="text" id="num">
+<br><br>
+출력:<input type="text" id="out">
+<br><br>
+<button type="button" onclick="inputBtn()">2배증가</button>
+
+<!-- 
+<script type="text/javascript">
+function inputBtn() {
+	let num = document.getElementById("num").value;
+	
+	document.getElementById("out").value = parseInt(num) * 2;
+	
+	// String -> Integer = Integer.parseInt("123");
+}
+</script>
+ -->
+ 
+
+</body>
+</html>

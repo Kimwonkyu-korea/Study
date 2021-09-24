@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+	access attribute
+	
+	id		: 1개만 접근. (빈칸)검사
+	class	: 다수. CSS 
+	name	: 다수. 데이터전송
+-->
+<p id="pdemo">p tag</p>
+<p id="pdemo">p tag</p>
+<br>
+
+<h3 class="hdemo">h3 tag</h3>
+<p class="hdemo">p tag</p>
+<br>
+
+<p name="pname">p tag</p>
+
+ <button type="button" onclick="btnclick()">클릭</button>
+ 
+ <script type="text/javascript">
+ function btnclick() {
+	document.getElementById('pdemo').innerHTML = 'p 태그입니다';
+	
+//	document.getElementsByClassName('hdemo')[1].innerHTML = 'class는 hdemo';
+
+//	alert(document.getElementsByClassName('hdemo').length);
+
+	let hdemo = document.getElementsByClassName('hdemo');
+	//
+	//alert(hdemo[0].innerHTML);
+	
+	for(i =0; i<hdemo.length; i++){
+		hdemo[i].innerHTML = 'class는 hdemo입니다.';
+	}
+	
+	document.getElementsByName("pname")[0].innerHTML ='pname입니다';
+	
+	document.getElementsByTagName("p")[1].innerHTML = '이것으로 결정!!'
+}
+ 
+ </script>
+ 
+ 
+</body>
+</html>
