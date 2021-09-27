@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<table border = "1" id="table">
+<tr>
+	<th>제목</th>
+	<th>저자</th>
+	<th>가격</th>
+	<th>날짜</th>
+</tr>
+</table>
+
+<script type="text/javascript">
+
+let xhttp = new XMLHttpRequest();	// 생성
+
+xhttp.onreadystatechange = function () {	// 함수 생성
+		
+	if(this.readyState == 4 && this.status == 200){	// 성공적으로 처리 될 때
+		jsonFunc(this.responseText);
+	}
+}
+
+xhttp.open("GET", "data.json", true);	// 파일 불러오기
+xhttp.send();							
+
+function jsonFunc( jsonText ) {
+	let arrTitle = new Array();
+	let arrAuthor = new Array();
+	let arrPrice = new Array();
+	let arrDate = new Array();
+	
+	let json = JSON.parse(jsonText);
+	
+	for(i=0; i<json.length; i++){ // 값 전체 가져오는법
+		arrTitle[i] = json[i].title;
+		arrAuthor[i] = json[i].author;
+		arrPrice[i] = json[i].price;
+		arrDate[i] = json[i].date;
+	}
+	let table = document.getElementById('table');
+	
+	for(i=0; i<arrTitle.length; i++){
+		let tr = document.createElement("tr");
+		
+		let td1 = document.createElement("td");			  
+		td1.appendChild(document.createTextNode(arrTitle[i] + ""));
+		
+		let td2 = document.createElement("td");			 
+		td2.appendChild(document.createTextNode(arrAuthor[i] + ""));
+		
+		let td3 = document.createElement("td");			 
+		td3.appendChild(document.createTextNode(arrPrice[i]+ ""));
+		
+		let td4 = document.createElement("td");			 
+		td4.appendChild(document.createTextNode(arrDate[i]+ ""));
+		
+		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(td3);
+		tr.appendChild(td4);
+		
+		table.appendChild(tr);
+	}
+
+}
+
+</script>
+</body>
+</html>

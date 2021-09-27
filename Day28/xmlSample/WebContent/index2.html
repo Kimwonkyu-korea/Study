@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo">p tag</p>
+
+<script type="text/javascript">
+
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {	//name 생략가능
+	
+	if(this.readyState == 4 && this.status == 200) {
+		
+	//	nodeValFunc(this); // responseXML 생략
+	//	nodeNameFunc(this);
+		childNodeFunc(this); 	//xhttp
+	}
+}
+xhttp.open("GET", "member.xml", true);
+xhttp.send();
+
+function nodeValFunc( xhttp ) {	// xhttp
+	
+	let num, name;
+	let txt, numtxt, xmlDoc;
+	
+	txt = numtxt = "";
+	
+	xmlDoc = xhttp.responseXML;	// xhttp.responseXML;
+	console.log(xmlDoc);
+	
+	num = xmlDoc.getElementsByTagName("번호");
+	console.log(num.length);
+	
+	console.log(num[0].childNodes[0].nodeValue);
+	
+	name = xmlDoc.getElementsByTagName("이름");
+	console.log(name.length);
+	console.log(name[0].childNodes[0].nodeValue);
+	
+	for(i = 0; i < num.length; i++){
+		txt += num[i].childNodes[0].nodeValue + "<br>";
+		numtxt += name[i].childNodes[0].nodeValue + "<br>";
+	}
+	
+	document.getElementById("demo").innerHTML = txt + "<br>"+ numtxt;
+}
+
+function nodeNameFunc( xhttp ) {
+	let arr, xmlDoc, txt;
+	
+	txt = "";
+
+	xmlDoc = xhttp.responseXML;
+	arr = xmlDoc.documentElement.childNodes;
+//	alert(arr);
+
+	for(i = 0; i < arr.length; i++){
+		console.log(arr[i].nodeType);
+		console.log(arr[i].nodeName);
+
+		if(arr[i].nodeType == 1){
+			txt += arr[i].nodeName + "<br>";
+		}
+	}
+	
+	document.getElementById("demo").innerHTML = txt;
+}
+
+function childNodeFunc( xhttp ) {
+	let arr, xmlDoc, txt;
+	txt = "";
+	
+	xmlDoc = xhttp.responseXML;
+	
+	arr = xmlDoc.getElementsByTagName("고객")[0];
+	let len = arr.childNodes.length;
+//	alert(len);
+
+	let fchild = arr.firstChild;
+	
+	for(i = 0; i < len; i++){
+	//	console.log(fchild.nodeName);
+	
+		if(fchild.nodeType == 1) {
+			txt += i + " " + fchild.nodeName + "<br>";
+		}
+		
+		fchild = fchild.nextSibling;	// 다음 주소로 보내줌
+	}
+	
+	document.getElementById("demo").innerHTML = txt;
+	
+}
+
+</script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+	JSON : Java Script Object Notation
+							  표기법
+							  
+		 	front end			back end
+		 	javaScript			java
+		 	jquary
+		 	
+		 	json -> key:value	HashMap -> key:value
+	
+			 [ 10, 20, 30 ] 	{ num:10, age:20, count:30 }
+				0	1	2		  key:value
+				index:value
+				
+			[
+				{
+					"name": "홍길동",  // "" 붙히면 다 된다.
+					age:24,
+					address:"서울시"			
+				},
+				{
+					name: "성춘향", 
+					age:16,
+					address:"남원시"			
+				},
+			]	
+			
+			// 1개 데이터
+			{
+				name: "성춘향", 
+				age:16,
+				address:"남원시"			
+			}
+ -->
+ 
+<p id="demo"></p>
+ 
+<script type="text/javascript">
+
+let jsonDate = [
+					{
+						"name":"홍길동",
+						"age" : 24,
+					},
+					{
+						"name": "성춘향", 
+						"age":16,
+					}
+				];
+
+
+document.getElementById("demo").innerHTML = jsonDate[1].name + " " + jsonDate[1].age;
+
+let arrText = '{"name":"홍길동", "age" : 24, "주소":"서울시"}';
+//alert(arrText);
+
+// String -> Json Object
+let jsonObj = JSON.parse(arrText);
+alert(jsonObj);
+
+// Json Object -> String 
+let str = JSON.stringify(jsonObj);
+alert(str);
+
+document.getElementById("demo").innerHTML = jsonObj.name + " " + jsonObj.age + " " + jsonObj.주소;
+
+</script>
+ 
+ 
+ 
+ 
+ 
+ 
+
+</body>
+</html>

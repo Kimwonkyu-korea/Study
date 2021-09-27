@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<!-- 
+	XML eXtensible Markup Language
+		확장			표시
+		
+	사용자 지정태그
+	목적 : Date(공공)를 공유하기 위한 목적
+		  Setup을 하기위한 목적
+		  
+	예) 교통정보 -> 버스번호, 정류장, 노선 -> DB
+	
+		tag data
+		번호 5-1 
+		출발 강남역
+		도착 논현역
+		
+		<버스들> 	root tag
+			<버스>
+				<번호>740</번호>
+				<출발>강남역</출발>
+				<도착>한남동</도착>
+				<대기시간>420</대기시간>
+			</버스>
+					:
+		</버스들>
+		
+		XML -> Json
+ -->
+ 
+<p id="demo">p tag</p>
+ 
+<button type="button" onclick="loadXmlDoc()">클릭</button>
+
+<script type="text/javascript">
+
+let xhttp = new XMLHttpRequest();	//xml 파일읽기  Request : 요청
+
+function loadXmlDoc() {
+	
+	xhttp.onreadystatechange = function () {
+		//끝나는 지점
+//		console.log(this.readyState);		// 순서
+//		console.log(this.status);			// 상태
+//		console.log(this.responseText);		// data를 얻어오는 부분
+		
+		document.getElementById("demo").innerHTML = this.responseText;
+	}
+	
+	xhttp.open("GET", "test.txt", true);
+//	console.log("xhttp.open");
+	
+	xhttp.send();
+//	console.log("xhttp.send");
+}
+
+/*
+ 	 readyState : 진행상태
+ 	 0 -> open 메소드를 수행하기 전 상태
+ 	 1 -> loading 중...
+ 	 2 -> loading 완료
+ 	 3 -> Server 처리중...
+ 	 4 -> Server 처리 완료
+ 	 
+ 	 status
+ 	 200 -> success
+ 	 403 -> 접근 금지
+ 	 404 -> 없음. 못찾겠음
+ 	 500 -> 구문(문법) 에러
+ 	 
+ */
+
+</script>
+
+
+
+
+
+ 
+ 
+ 
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div id="books">
+</div>
+
+<script type="text/javascript">
+
+let xhttp = new XMLHttpRequest();	// 생성
+
+xhttp.onreadystatechange = function () {	// 함수 생성
+		
+	if(this.readyState == 4 && this.status == 200){	// 성공적으로 처리 될 때
+		jsonPars(this);
+	}
+}
+
+xhttp.open("GET", "data.json", true);	// 파일 불러오기
+xhttp.send();	
+
+function jsonPars( xhttp ) {
+	
+	let jsonDoc = xhttp.responseText;
+	let jsonObj = JSON.parse(jsonDoc);	// json 변경
+	
+//	alert(jsonObj[0].title);
+	
+	//table 생성
+	let out = "<table border='1'>";
+	//com 5개
+	out += "<col width='50'><col width='100'><col width='100'><col width='100'><col width='120'>";
+	
+	//row = 번호 1, 2, 3, 4
+	out += "<tr>";
+		out += "<th>번호</th>";
+		for(k in jsonObj[0]){
+			out += "<th>" + k + "</th>";		
+		}
+	out += "</tr>";
+	
+	// datas
+	for(i = 0;i < jsonObj.length; i++){
+		out += "<tr>";	
+		
+		out += "<th>" + (i + 1) + "</th>";
+		
+			out += "<td>" + jsonObj[i].title + "</td>";
+			out += "<td>" + jsonObj[i].author + "</td>";
+			out += "<td>" + jsonObj[i].price + "</td>";
+			out += "<td>" + jsonObj[i].date + "</td>";		
+		
+		out += "</tr>";
+	}	
+	out += "</table>";	
+	
+	document.getElementById("books").innerHTML = out;
+}
+</script>
+</body>
+</html>

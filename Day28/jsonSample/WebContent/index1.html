@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo"></p>
+
+<script type="text/javascript">
+
+let xhttp = new XMLHttpRequest();
+
+xhttp.onreadystatechange = function () {
+	if(xhttp.readyState == 4 && xhttp.status == 200){
+		jsonFunc(this);	// xhttp
+	}
+}
+xhttp.open("GET", "data.json", true);
+xhttp.send();
+
+function jsonFunc( xhttp ) {
+//	alert(xhttp.responseText); 	//  문자열
+	
+	let str = xhttp.responseText;
+	
+	let json = JSON.parse(str);	// JSON 변경
+//	alert(json);
+//	alert(json.length);
+/*
+	console.log(json[0].name);
+	console.log(json[0].age);
+	console.log(json[0].address);
+	console.log(json[0].height);
+*/
+
+	let txt = "";
+	for(i=0; i < json.length; i++) {
+		txt += json[i].name + " " +
+		json[i].age + " " +
+		json[i].address + " " +
+		json[i].height + "<br>";
+	}
+	document.getElementById("demo").innerHTML = txt;
+}
+
+
+
+
+</script>
+
+</body>
+</html>

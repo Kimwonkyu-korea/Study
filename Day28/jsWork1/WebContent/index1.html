@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body bgcolor="#000000" text="#ffffff">
+
+<h1>사진들</h1>
+
+<table>
+<tr>
+	<td>
+		<img alt="" src="images/pic01.jpg" name="photo" id="photo" border="3" width="300" height="450">
+	</td>
+	
+	<td valign="top" style="padding-left: 10px">
+		<form name="frm">
+	
+		<select onchange="photochange()" id="choice" name="choice">
+			<option value="">사진들-----</option>
+			<option value="images/pic01.jpg">그림1</option>
+			<option value="images/pic02.jpg">그림2</option>
+			<option value="images/pic03.jpg">그림3</option>
+			<option value="images/pic04.jpg">그림4</option>		
+			<option value="">영화들-----</option>
+			<option value="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000084/84872/84872_320.jpg">보이스</option>
+			<option value="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000084/84617/84617_320.jpg">기적</option>
+			<option value="https://img.cgv.co.kr/Movie/Thumbnail/Poster/000084/84834/84834_320.jpg">샹치와 텐 링즈의 전설</option>				
+		</select>
+		
+		</form>
+	</td>
+</tr>
+</table>
+
+<script type="text/javascript">
+function photochange() {	
+//	alert('photochange()');
+
+	/*
+	let choiceVal = document.getElementById("choice").value;	//name 접근
+//	alert(choiceVal);
+
+	if(choiceVal != ''){
+		document.getElementById("photo").src = choiceVal;
+	}
+	*/
+	
+	
+	let selectIndex = document.frm.choice.selectedIndex;
+//	alert(selectIndex);
+	
+	if(selectIndex != 0 && selectIndex != 5){
+		document.photo.src = document.frm.choice.options[selectIndex].value;
+	}
+	
+}
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

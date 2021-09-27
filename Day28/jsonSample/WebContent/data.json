@@ -1,0 +1,26 @@
+[
+	{
+		"name":"정수동",
+		"age":23,
+		"address":"서울시",
+		"height":181.1	
+	},
+	{
+		"name":"심청이",
+		"age":14,
+		"address":"강원시",
+		"height":165.3	
+	},
+	{
+		"name":"향단이",
+		"age":16,
+		"address":"남원시",
+		"height":157.9	
+	},
+	{
+		"name":"이몽룡",
+		"age":18,
+		"address":"공주시",
+		"height":173.7	
+	}
+]

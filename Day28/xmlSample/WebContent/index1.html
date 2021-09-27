@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<p id="demo">p tag</p>
+
+<script type="text/javascript">
+
+let xmltest = "<bookstore>" +		/* root 태그 */
+				"<book>" + 			/* node */
+					"<title>탈무드</title>" +
+					"<author>man</author>" +
+					"<year>2001</year>" +
+				"</book>" +
+				"<book>" + 			/* node */
+					"<title>이솝이야기</title>" +
+					"<author>woman</author>" +
+					"<year>2004</year>" +
+				"</book>" +
+				"</bookstore>";
+//alert(xmltest);
+
+let parser, xmlDoc;
+
+parser = new DOMParser();
+xmlDoc = parser.parseFromString(xmltest, "text/html");
+// alert(xmlDoc);
+
+document.getElementById("demo").innerHTML
+//	= xmlDoc.getElementsByTagName("book")[0].childNodes[0].nodeName;	//0번지의 title
+//	= xmlDoc.getElementsByTagName("book")[0].childNodes[1].nodeName;	//0번지의 author
+
+//	= xmlDoc.getElementsByTagName("book")[0].childNodes[0].childNodes[0].nodeValue; //탈무드
+//	= xmlDoc.getElementsByTagName("book").length;	// 2
+	= xmlDoc.getElementsByTagName("book")[0].childNodes.length; // 3 
+</script>
+
+</body>
+</html>
