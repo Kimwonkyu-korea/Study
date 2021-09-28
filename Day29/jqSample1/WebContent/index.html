@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<!-- 
+		Java Script : client(front)
+					  resource(입력창, image)의 값을 변경, 설정
+					  
+		JQuery : Java Script 경량화, 간략화
+				 Ajax(비동기통신) -> RESTful
+ -->
+
+<script type="text/javascript">
+/*
+ 	형식 :	$( tag명, id, class, name ).핸들러 함수(매개변수)
+ 	
+ 			getter, setter
+ 			
+ 			<p id="demo">p tag</p>
+ 			let v = document.getElementById("demo").innerHTML;
+ 			document.getElementById("demo").innerHTML; = "p 태그";
+ 			
+ 			<input type="text" id="name">
+ 			let name = document.getElementById("name").value;
+ 			document.getElementById("name").value = "홍길동";
+ 			
+ 			innerHTML = html(), text()
+ 			value = val()
+ */
+
+</script>
+
+<p>여기가 p태그입니다</p>
+
+<script type="text/javascript">
+// JS
+//let pval = document.getElementsByTagName("p")[0].innerHTML;
+//console.log(pval);
+
+// JQuery
+let pval = $("p").html();	// getter
+//alert(pval);
+
+//$("p").html("hello <b>p</b> tag");	// setter
+$("p").text("hello <b>p</b> tag text");	// 문자열로 인식
+
+
+</script>
+<!--  ip는 중복X class는O -->
+<p id="demo">p tag id demo</p>	
+
+<h3 class="cls">h3 tah class cls</h3>
+
+<p class="cls">p tag class cls</p>
+
+<script type="text/javascript">
+//	 ready는 최종적으로 실행
+ 
+$(document).ready(function fuc( ) {	// 문서가 준비되면 함수를 실행.
+	
+	// getter
+	let demo = $("#demo").html();	// id일 경우# 사용 / text()도 가능
+	alert(demo);
+	
+	// setter
+	$("#demo").text("p tag 입니다");	// html();
+	
+	$(".cls").text("cls class 값입니다"); // class는 . 사용
+	
+	// func();
+	
+	// jquery
+	$("p").html("p 태그입니다!!!");
+
+});
+
+function func() {
+
+	//	java script
+	let ptagArr = document.getElementsByTagName("p"); // Object
+	for (i = 0; i < ptagArr.length; i++) {
+		ptagArr[i].innerHTML = "p 태그입니다!!!";
+	}
+}
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

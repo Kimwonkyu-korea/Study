@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="jquery.min.js"></script>
+
+</head>
+<body>
+	
+<table border="1">
+<col width="50"><col width="200"><col width="150">
+<tr>
+	<th>번호</th><th>이름</th><th>나이</th>
+</tr>
+<tr class="cls">
+	<th>1</th><td>홍길동</td><td>24</td>
+</tr>
+<tr class="cls">
+	<th>2</th><td>성춘향</td><td>16</td>
+</tr>
+<tr class="cls">
+	<th>3</th><td>일지매</td><td>22</td>
+</tr>
+</table>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$("tr.cls").mouseover(function() {	// tr tag 안에 class="cls"만 허용
+		$(this).css("background", "#00ff00");	// 마우스를 올렸을 때
+	});
+	
+	$("tr.cls").mouseout(function() {
+		$(this).css("background", "#ffffff");	// 마우스가 밖으로 나갈 때
+	});
+	
+	$("td").on("click", function () {
+		let txt = $(this).text();	// 클릭 시 자신의 text를 가져옴
+		alert(txt);
+	});
+	
+	// html(), text(), css()
+	
+});
+</script>
+
+
+
+
+
+</body>
+</html>

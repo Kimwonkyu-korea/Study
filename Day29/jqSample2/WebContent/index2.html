@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="demo"></div>
+
+<button type="button">태그 추가</button>
+
+<script type="text/javascript">
+$(function () {
+	
+	$("button").click(function() {
+		
+		// html(text) 추가
+	//	let txt ="<p><b>html p tag Append</b></p>"
+	//	$("#demo").append(txt);
+		
+		// JavaScript 추가
+	//	let element = document.createElement("h3");
+	//	element.innerHTML = "JS h3 tag append";		// <h3>JS h3 tag append</h3>
+	//	$("#demo").append(element);
+		
+		// JQuery 추가
+		let element = $("<p></p>").html("JQuery p tag append");	// </p> 생략가능
+		$("#demo").append(element);
+	});
+	
+});
+
+</script>
+
+</body>
+</html>

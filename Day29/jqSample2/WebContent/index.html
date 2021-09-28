@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style type="text/css">
+.back{
+	background-color: blue;
+	color: #ffff00;
+}
+
+</style>
+
+</head>
+<body>
+
+<p>p tag</p>
+
+<button type="button">버튼</button>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$("button").click(function() {
+		// attribute(속성) 추가
+		// $("p").css("background", "#ff0000")
+		//			property명		값
+		
+		// setter
+		//$("p").css("background" , "#ff0000");
+		//$("p").css("color" , "#ffffff");
+		
+/*		$("p").css({"background":"#00ff00" , "color":"#ffffff"});	//JSON
+		$("p").text( "여기가 p 태그입니다" );
+		
+		// getter
+		let color = $("p").css("backgroundColor");
+	//	alert(color);
+*/		
+		$("p").attr("id", "demo");	// id 생성
+		
+		let ptext = $("p").attr("id");	
+	//	alert(ptext);
+	
+		$("p").attr("class", "back");
+		
+		// html(), text(), val(), css(), attr(), prop()
+	});
+});
+
+
+</script>
+
+</body>
+</html>

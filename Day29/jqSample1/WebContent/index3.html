@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="jquery.min.js"></script>
+</head>
+<body>
+
+<p class="cls">p tag</p>
+
+<h2 class="cls">h2 tag</h2>
+
+<h3 class="cls">h3 tag</h3>
+
+<div class="cls">div tag</div>
+
+<script type="text/javascript">
+$(document).ready(function() {		// 문서가 준비되면 실행
+	
+	$(".cls").click(function() {	// class 접근
+		//alert('cls click');
+	
+		$(this).text("여기를 클릭!");	// 클릭 시 text() 변경
+	
+	})
+	
+});
+</script>
+
+</body>
+</html>

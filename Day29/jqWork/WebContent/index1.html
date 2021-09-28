@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>이미지 자동 삽입</h2>
+<div class="pic">
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+//	let imgname = [ "", ""];
+	
+	for(i=1; i < 10; i++){
+		
+		//let img = $("<img></img>").attr("src":"images/photo_"+ i +".jpg").attr("class": "photo");
+				
+		
+		let img = $("<img></img>").attr({ 
+											"src":"images/photo_"+ i +".jpg",
+											// "src":imgname[i],
+											"class": "photo"
+											
+										});
+		$(".pic").append(img);		
+	}
+	
+	$(".photo").click(function() {
+		$(this).remove();
+	});
+	
+});
+
+</script>
+
+</body>
+</html>

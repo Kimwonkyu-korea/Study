@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- radio
+	id는 한개만 인식하기때문에 name 사용
+ -->
+<ul>	
+	<li><input type="radio" name="radio_test" value="apple" checked="checked">사과</li>
+	<li><input type="radio" name="radio_test" value="pear">배</li>
+	<li><input type="radio" name="radio_test" value="banana">바나나</li>
+</ul>
+
+<button type="button" id="choice">선택</button>
+
+<script type="text/javascript">
+$(function () {
+	
+	$("#choice").click(function() {
+		// getter
+		//let rVal = $("input[name='radio_test']:checked").val();
+		//alert(rVal);
+		
+		// setter
+		$("input[name='radio_test']").val(["banana"]);
+	});
+});
+
+</script>
+
+<br><br>
+
+<!-- checkbox -->
+<input type="checkbox" id="ch" checked="checked">그림그리기
+<br><br>
+<button type="button" id="btn">체크</button>
+
+<script type="text/javascript">
+
+$("#btn").click(function() {
+	
+	// getter
+//	let check = $("#ch").is(":checked");						//권장
+//	let check = $("input:checkbox[id='ch']").is(":checked");	//참고
+//	alert(check);
+	
+	// setter
+	$("#ch").prop("checked", true);
+});
+
+
+
+</script>
+
+
+
+</body>
+</html>
