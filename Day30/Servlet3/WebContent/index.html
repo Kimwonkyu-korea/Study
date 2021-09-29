@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1>Servlet 기본</h1>
+
+<a href="location">Hello Servlet(doGet)으로 이동</a>
+<br><br>
+<!-- 파라미터는 get은 보이고, post는 안보임 -->
+<form action="location" method="get">
+	<input type="text" name="name">
+	<input type="checkbox" name="hobby" value="book">독서
+	<input type="checkbox" name="hobby" value="game">게임
+	<input type="checkbox" name="hobby" value="eat">군것질
+	<input type="submit" value="get">
+</form>
+<br><br>
+<form action="location" method="post">
+	<input type="text" name="name">
+	<input type="submit" value="post">
+</form>
+
+
+<!-- 
+	첵크박스 (취미) : 3개 전송 -> HelloServlet에서 출력
+ -->
+
+</body>
+</html>
