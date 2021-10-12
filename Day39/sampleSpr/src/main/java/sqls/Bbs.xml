@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Bbs">
+
+<select id="bbslist" parameterType="mul.com.a.dto.BbsParam" resultType="mul.com.a.dto.BbsDto">
+	SELECT SEQ, ID, REF, STEP, DEPTH, TITLE, CONTENT, WDATE, DEL, READCOUNT
+	FROM (SELECT 	ROW_NUMBER()OVER(ORDER BY REF DESC, STEP ASC) AS RNUM,
+				SEQ, ID, REF, STEP, DEPTH, 
+				TITLE, CONTENT, WDATE, 
+				DEL, READCOUNT
+		FROM BBS
+		<if test="choice == 'title'">
+			WHERE TITLE LIKE '%'||#{ search }||'%'
+		</if>
+		<if test="choice == 'content'">
+			WHERE CONTENT LIKE '%'||#{ search }||'%'
+		</if>
+		<if test="choice == 'id'">
+			WHERE ID=#{ search }
+		</if>	
+		ORDER BY REF DESC, STEP ASC)
+	WHERE RNUM BETWEEN #{start} AND #{end}
+</select>
+
+<select id="allbbs" parameterType="mul.com.a.dto.BbsParam" resultType="Integer">
+	SELECT COUNT(*) 
+	FROM BBS
+	<if test="choice == 'title'">
+		WHERE TITLE LIKE '%'||#{ search }||'%'
+	</if>
+	<if test="choice == 'content'">
+		WHERE CONTENT LIKE '%'||#{ search }||'%'
+	</if>
+	<if test="choice == 'id'">
+		WHERE ID=#{ search }
+	</if>
+</select>
+
+<insert id="writeBbs" parameterType="mul.com.a.dto.BbsDto">
+	INSERT INTO BBS(SEQ, ID, REF, STEP, DEPTH, 
+			TITLE, CONTENT, WDATE, DEL, READCOUNT)
+	VALUES(SEQ_BBS.NEXTVAL, #{id}, (SELECT NVL(MAX(REF), 0)+1 FROM BBS), 0, 0, 
+			#{title}, #{content}, SYSDATE, 0, 0)
+</insert>
+
+</mapper>
+
+
