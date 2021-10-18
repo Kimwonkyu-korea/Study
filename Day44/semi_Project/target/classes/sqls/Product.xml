@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Product">
+
+<!-- <insert id="product" parameterType="mul.com.a.dto.ProductDto">
+	INSERT INTO cf_product(product_id, category_id , product_name, product_price, product_ice, product_shot)
+	VALUES(CF_PRODUCT_SEQ.nextval, 1, #{product_name}, #{product_price}, #{product_ice}, #{product_shot})
+</insert>
+ -->
+ 
+<insert id="product" parameterType="mul.com.a.dto.CartDto">
+	insert  into cart(order_id, user_id, product_id, order_date, total_price, product_name ,order_count, product_price)
+	values (order_seq.nextval, #{user_id}, #{product_id}, #{order_date}, #{total_price},#{product_name}, #{order_count}, #{product_price})
+</insert>
+
+</mapper>
