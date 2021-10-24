@@ -105,7 +105,7 @@ table, th, td{ 	/* 같이 선언할 수 있다 */
 
 ### body CSS
 
-- 한줄에 쓸 수 이싿.
+- 한줄에 쓸 수 있따
 
 ```html
 <style type="text/css">
