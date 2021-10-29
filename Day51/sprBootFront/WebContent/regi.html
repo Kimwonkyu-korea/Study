@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style type="text/css">
+#app{
+	margin: auto;
+	margin-top: 60px;
+	width: 60%;
+	border: 3px solid #8ac007;
+	padding: 10px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>회원가입</h1>
+
+<div id="app">	
+	<form id="frm">
+
+	<table border="1">
+	<tr>
+		<td>아이디</td>
+		<td>
+			<input type="text" id="id" name="id" placeholder="아이디입력" size="20">
+			<p id="idcheck"></p>
+			<button type="button" id="idcheckbtn">중복확인</button>
+		</td>
+	</tr>
+	<tr>
+		<td>패스워드</td>
+		<td>
+			<input type="text" id="pwd" name="pwd" placeholder="패스워드입력" size="20">
+		</td>
+	</tr>	
+	<tr>
+		<td>이름</td>
+		<td>
+			<input type="text" id="name" name="name" placeholder="패스워드입력" size="20">
+		</td>
+	</tr>
+	<tr>
+		<td>이메일</td>
+		<td>
+			<input type="text" id="email" name="email" placeholder="패스워드입력" size="20">
+		</td>
+	</tr>	
+	
+	<tr>
+		<td colspan="2">
+			<button type="button" id="account">회원가입</button>
+		</td>
+	</tr>	
+	
+	</table>
+	</form>	
+</div>
+
+<script type="text/javascript">
+$(document).ready(function () {	// html 준비가 끝나면 실행해라
+	
+	$("#idcheckbtn").click(function () { // id값이 idcheckbtn버튼 누를 시
+	//	alert('idcheckbtn');
+	
+		// id첵크
+		// url = 기본경로 + Controller에서 value값
+		$.ajax({
+			url:"http://localhost:3000/idcheck",
+			type:"post",
+			data:{ id:$("#id").val() },
+			success:function( resp ){	// resp은 Controller 리턴값
+			//	alert('success');
+			
+				if(resp.trim() == "YES"){	// 중복
+					$("#idcheck").html("사용중인 아이디입니다"); // <p>태그
+					$("#id").val("");	// 값을 비워라
+				}else{	// 사용 가능
+					$("#idcheck").html("사용할 수 있는 아이디입니다");
+				}			
+			},
+			error:function(){
+				alert('error');
+			}
+		});
+	});
+	
+	$("#account").click(function () {	// 회원가입 버튼 클릭 시
+		// 전달할 값이 많은 경우
+		let params = $("#frm").serialize();	// form 데이터를 가져옴
+		
+		$.ajax({
+			url:"http://localhost:3000/addMember",
+			type:"post",
+			data:params,	// form 입력한 데이터 값을 전달
+			success:function(resp){
+			//	alert("success");
+				if(resp == "OK"){	// 가입 성공
+					alert("가입성공했습니다")
+					location.href = "login.html";	// 로그인 페이지로 이동
+				}else{
+					alert("가입이 되지 않았습니다")	// NG
+				}
+			},
+			error:function(){
+				alert("error");
+			}
+		});
+	});
+});
+</script>
+
+
+
+</body>
+</html>

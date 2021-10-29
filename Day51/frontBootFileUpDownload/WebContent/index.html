@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>file upload</h2>
+
+<form id="upload_file_frm">
+	<input type="file" id="uploadFile" name="uploadFile" accept="*">
+	<input type="text" name="message">
+	<button type="button" id="uploadFileBtn">파일 업로드</button>
+	<p id="uploadResult"></p>
+</form>
+
+<script type="text/javascript">
+
+$("#uploadFileBtn").click(function() {
+	
+	$.ajax({
+		url:"http://localhost:3000/fileUpload",
+		type: "post",
+		data: new FormData( $("#upload_file_frm")[0] ),	// 지원되는 함수
+		enctype: 'multipart/form-data',
+		processData:false,
+		contentType:false,
+		cash:false,
+		success:function(msg){
+			alert('success');
+		},
+		error:function(){
+			alert('error');
+		}
+	});
+});
+
+</script>
+
+<h2>file download</h2>
+
+<button type="button" id="downloadBtn">파일 다운로드</button>
+
+<script type="text/javascript">
+$("#downloadBtn").click(function() {
+	
+	location.href = "http://localhost:3000/fileDownload?fileName=" + "record.html";
+	
+	/*
+	$.ajax({
+		url:"http://localhost:3000/fileDownload",
+		type: "get",
+		data: { fileName:"record.html"},
+		success: function(){
+			alert("success");
+		},
+		error:function(){
+			alert("error");
+		}
+	});
+		*/
+});
+
+
+</script>
+
+</body>
+</html>

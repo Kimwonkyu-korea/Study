@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+//html에서 추가하면, parameter를 받을 수 있는 소스 : 추가만 해주면 된다.
+let urlParams = location.search.split(/[?&]/).slice(1).map(function(paramPair) {
+    return paramPair.split(/=(.+)?/).slice(0, 2);
+}).reduce(function(obj, pairArray) {
+    obj[pairArray[0]] = pairArray[1];
+    return obj;
+}, {});
+</script>
+
+</head>
+<body>
+
+<h2>내용보기</h2>
+
+<div id="app" class="container">
+	<table class="table table-striped">
+		<col width="200"><col width="500">		
+		<tr>
+			<td>작성자</td>
+			<td id="id"></td>
+		</tr>
+		<tr>
+			<td>제목</td>
+			<td id="title"></td>
+		</tr>
+		<tr>
+			<td>작성일</td>
+			<td id="wdate"></td>
+		</tr>
+		<tr>
+			<td>조회수</td>
+			<td id="readcount"></td>
+		</tr>		
+		
+		<tr>
+			<td>내용</td>
+			<td>
+				<textarea class="form-control" rows="20" id="content"></textarea>
+			</td>
+		</tr>
+	</table>
+	
+	<button type="button" id="bbslist">글목록</button>
+	<button type="button" id="updatebbs">글수정</button>	
+	<button type="button" id="deletebbs">글삭제</button>
+</div>
+
+<script type="text/javascript">
+
+let seq = urlParams.seq;
+//alert(seq);
+
+$.ajax({
+	url:'http://localhost:3000/bbsdetail',
+	type:'get',
+	data:{ 'seq':seq },
+	success:function(data){
+	//	alert('success');
+	//	alert( JSON.stringify(data));
+		$("#id").text( data.id );
+		$("#title").text( data.title );
+		$("#wdate").text( data.wdate );
+		$("#readcount").text( data.readcount );
+		$("#content").val( data.content );	// textarea
+		
+		// login한 id와 다를 때는 수정과 삭제를 할 수 없도록 처리  
+		let login = JSON.parse(sessionStorage.getItem("login"));
+		if(data.id != login.id){
+			$("#updatebbs").hide(); // 나타내지 말아라
+			$("#deletebbs").hide();
+		}
+	},
+	error:function(){
+		alert('error');
+	}		
+});
+
+
+
+</script>
+
+</body>
+</html>
