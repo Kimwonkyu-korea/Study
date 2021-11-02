@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<h2>objectDetection</h2>
+
+<form id="upload_file_frm">	
+	<input type="file" id="uploadFile" name="uploadFile" accept="*">
+	<button type="button" id="uploadFileBtn">파일 업로드</button>
+	<p id="uploadResult"></p>
+</form>
+
+<hr>
+
+<h2>판별된 객체</h2>
+
+<div id="obj">
+
+</div>
+
+<script type="text/javascript">
+
+$("#uploadFileBtn").click(function() {
+	
+	$.ajax({
+		url:"http://localhost:3000/obj_detect",
+		type:"post",
+		data:new FormData( $("#upload_file_frm")[0] ),
+		enctype: 'multipart/form-data',
+		processData:false,
+		contentType:false,
+		cash:false,
+		success:function(msg){
+			alert('success');
+			alert(msg);
+		
+			let json = JSON.parse(msg);
+			alert(json.predictions);
+			alert(JSON.stringify(json.predictions[0].datection_names));		
+			
+			$.each(json.predictions[0].datection_names, function (i, item) {
+				$("#obj").append(item + "<br>");
+			});
+		},
+		error:function(){
+			alert('error');
+		}		
+	});	
+});
+
+</script>
+
+
+</body>
+</html>
