@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+//html에서 추가하면, parameter를 받을 수 있는 소스 : 추가만 해주면 된다.
+let urlParams = location.search.split(/[?&]/).slice(1).map(function(paramPair) {
+    return paramPair.split(/=(.+)?/).slice(0, 2);
+}).reduce(function(obj, pairArray) {
+    obj[pairArray[0]] = pairArray[1];
+    return obj;
+}, {});
+</script>
+
+</head>
+<body>
+<h2>글 수정</h2>
+
+<div align="center">
+<form id="frm">
+<input type="hidden" id="seq" name="seq">
+
+<table border="1">
+<col width="200"><col width="500"> 
+
+<tr>
+	<th>아이디</th>
+	<td>
+		<input type="text" id="id" name="id" readonly="readonly" size="60"> 		
+	</td>	
+</tr>
+<tr>
+	<th>제목</th>
+	<td>
+		<input type="text" id="title" name="title" size="60" >		
+	</td>
+</tr>
+<tr>
+	<th>내용</th>
+	<td>
+		<textarea rows="10" cols="60" id="content" name="content"></textarea>		
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<button type="button" id="updateBtn">글수정</button>
+	</td>
+</tr>
+
+</table>
+</form>
+</div>
+
+<a href="bbslist.html">글목록</a>
+
+<script type="text/javascript">
+let seq = urlParams.seq;
+
+getBbs();
+
+function getBbs() {
+	$.ajax({
+		url:"http://localhost:3000/bbsdetail",
+		type:"get",
+		data:{'seq':seq},
+		success:function(data){
+		//	alert('success');
+			$("#seq").val( data.seq);
+			$("#id").val( data.id );
+			$("#title").val( data.title );
+			$("#content").val( data.content );
+		},
+		error:function(){
+			alert('error');
+		}
+	});
+}
+
+$("#updateBtn").click(function() {
+	//	let params = $("#frm").serialize();
+	//	alert(params);
+	
+	$.ajax({
+		url:"http://localhost:3000/bbsupdate",
+		contentType: 'application/.xml; charset=utf-8',
+		type:"get",
+		data:$("#frm").serialize(),
+		success:function(resp){
+		//	alert('success');
+		
+			if(resp == "OK"){
+				alert('수정되었습니다');
+			}else{
+				alert('수정되지 않았습니다');
+			}			
+			location.href = "bbslist.html";
+		},
+		error:function(){
+			alert('error');
+		}
+	});
+});
+</script>
+</body>
+</html>

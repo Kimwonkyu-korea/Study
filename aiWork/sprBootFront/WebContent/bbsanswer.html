@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+//html에서 추가하면, parameter를 받을 수 있는 소스 : 추가만 해주면 된다.
+let urlParams = location.search.split(/[?&]/).slice(1).map(function(paramPair) {
+    return paramPair.split(/=(.+)?/).slice(0, 2);
+}).reduce(function(obj, pairArray) {
+    obj[pairArray[0]] = pairArray[1];
+    return obj;
+}, {});
+
+</script>
+
+</head>
+<body>
+<div align="center">
+
+<h2>부모글</h2>
+
+<table border="1">
+<col width="200"><col width="500">
+<tr>
+	<td>작성자</td>
+	<td id="userId"></td>
+</tr>
+<tr>
+	<td>제목</td>
+	<td id="title"></td>
+</tr>
+<tr>
+	<td>작성일</td>
+	<td id="wdate"></td>
+</tr>
+<tr>
+	<td>조회수</td>
+	<td id="readcount"></td>
+</tr>
+<tr>
+<tr>
+	<td>내용</td>
+	<td>
+		<textarea rows="10" cols="50" id="content" readonly="readonly"></textarea>
+	</td>
+</tr>
+</table>
+
+<h2>답글</h2>
+
+<form id="frm">
+<input type="hidden" id="seq" name="seq">
+<table border="1">
+<col width="200"><col width="500">
+
+<tr>
+	<td>아이디</td>
+	<td>
+		<input type="text" id="id" name="id" size="50" readonly="readonly">
+	</td>
+</tr>
+<tr>
+	<td>제목</td>
+	<td>
+		<input type="text" name="title" size="50">
+	</td>
+</tr>
+<tr>
+	<td>내용</td>
+	<td>
+		<textarea rows="10" cols="50" name="content"></textarea>
+	</td>
+</tr>
+<tr>
+	<td colspan="2">
+		<div align="center">
+			<button id="answerBtn">답글작성완료</button>
+		</div>
+	</td>
+</tr>
+</table>
+</form>
+</div>
+
+
+<script type="text/javascript">
+// 로그인한 회원 id
+let login = sessionStorage.getItem("login");
+let id = JSON.parse(login).id;
+// alert(id);
+$("#id").val(id);
+
+let seq = urlParams.seq;
+// alert(seq);
+$("#seq").val(seq);
+
+getBbs();
+
+function getBbs() {
+	$.ajax({
+		url:"http://localhost:3000/bbsdetail",
+		type:"get",
+		data:{'seq':seq},
+		success:function(data){
+		//	alert('success');
+		// 	태그안에 비어 있을때 append : 문자열 추가 , 
+		//	val : 값을 넣어라 
+			$("#userId").append( data.id );
+			$("#wdate").append(data.wdate);
+			$("#readcount").append( data.readcount);
+			$("#title").append( data.title );
+			$("#content").append( data.content );
+			
+		},
+		error:function(){
+			alert('error');
+		}
+	});
+}
+
+$("#answerBtn").click(function () {	
+	
+	let params = $("#frm").serialize();
+	// alert(params);
+	$.ajax({
+		url:"http://localhost:3000/bbsanswer",
+		type:"get",
+		data:params,
+		success:function(resp){
+			// alert('success');
+			if(resp == "OK"){
+				alert('답글이 작성되었습니다.');
+				location.href = "bbslist.html";
+			}else{
+				alert('답글이 작성되지 않았습니다.');
+			}			
+		},
+		error:function(){
+			alert('error');
+		}
+	});
+});
+
+</script>
+
+
+</body>
+</html>

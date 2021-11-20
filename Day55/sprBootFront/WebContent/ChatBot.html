@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ChatBot.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link type="text/css" rel="stylesheet" href="css/chatbox.css">
+</head>
+<body>
+
+<div id="wrapper">
+	<div id="menu">
+		<h3 class="welcome">Welcome ChatBot</h3>	
+	</div>
+	
+	<div id="chatbox">
+	
+		<!-- <div class="usermsg">하이</div><br>
+		
+			<div align="right">
+				<div class="botmsg">방가방가 지금 모해?</div>
+			</div><br>
+			
+		<div class="usermsg">잘 지냈어?</div><br>
+		<div class="usermsg">요즘 어떻게 지냈어?</div><br>
+		
+			<div align="right">
+				<img src="https://img.icons8.com/color/40/000000/guest-female.png">
+			</div><br>
+			
+			<div align="right">
+				<a href="http://www.naver.com" class="botmsg" target="_blank">네이버로 이동</a>
+			</div><br>
+			
+			<div align="right">
+				<img alt="" src="css/huk.gif">
+			</div>
+			
+			<div class="usermsg">대답안하냐?</div><br>
+		
+			<div align="right">
+				<div class="botmsg">지금 바빠</div>
+			</div>	
+			<br>
+			
+			<div class="usermsg">지금 사우나니?</div><br>
+			
+			<div class="usermsg">아니면 바쁠일이 없잖아?</div><br>
+			
+			<div align="right">
+				<div class="botmsg">지금 롤하는 중...</div>
+	    	</div><br> -->
+	
+	</div>
+	
+	<div id="myform">
+		<input type="text" id="usermsg" placeholder="message please">
+		<input type="button" id="submitmsg" value="send">
+	</div>	
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+	$("#chatbox").stop().animate({ scrollTop:$("#chatbox")[0].scrollHeight }, 2000);
+	
+	$("#submitmsg").click(function () {
+		
+		if( $("#usermsg").val() != "" ){
+			
+			$("#chatbox").append("<div class='usermsg'>" + $("#usermsg").val() + "</div><br>");
+			
+			// naver 전송
+			$.ajax({
+				url:"http://localhost:3000/chatbot",
+				type:"post",
+				data:{ msg:$("#usermsg").val() },
+				success:function(str){
+				//	alert('success');
+				//	alert(str);
+				//	let json = JSON.parse(str);
+				//	alert(json.bubbles[0].type);	
+				
+					respProc(str);
+				},
+				error:function(){
+					alert('error');
+				}
+			});
+			
+			$("#chatbox").stop().animate({ scrollTop:$("#chatbox")[0].scrollHeight }, 2000);			
+		}	
+		
+	});	
+});
+
+function respProc( str ) {
+	let json = JSON.parse(str);
+	
+	if(json.bubbles[0].type == "text"){
+		
+		$("#chatbox").append("<div align='right'><div class='botmsg'>" + json.bubbles[0].data.description + "</div></div><br>");
+		
+	}else{
+		
+		alert(json.bubbles[0].data.cover.type);	// image, text(link)
+		
+		if(json.bubbles[0].data.cover.type == "image"){
+			let title = json.bubbles[0].data.cover.title;
+			let imageUrl = json.bubbles[0].data.cover.data.imageUrl;
+			
+		//	alert(title);
+		//	alert(imageUrl);
+		
+			let imgTag = "<img src='" + imageUrl + "' width='200' class='img1'/>";
+			
+			$("#chatbox").append("<div align='right'><div class='botmsg'>" + title + "<br>" + imgTag + "</div></div><br>");			
+		}
+		else{	// text -> a tag
+			let description = json.bubbles[0].data.cover.data.description;
+			let title = json.bubbles[0].data.contentTable[0][0].data.title;
+			let url = json.bubbles[0].data.contentTable[0][0].data.data.action.data.url;
+//			alert(JSON.stringify(url));
+
+			let aTag = "<a href='" + url + "' target='_blank'>" + title + "</a>";
+			$("#chatbox").append("<div align='right'><div class='botmsg'>" + description + "<br>" + aTag + "</div></div><br>");		
+		}
+	}
+}
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
