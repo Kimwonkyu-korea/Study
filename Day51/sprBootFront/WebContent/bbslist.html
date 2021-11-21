@@ -79,8 +79,8 @@
 //let login = sessionStorage.getItem("login");
 //alert(login);
 
-getBbslist(0);
-getBbsCount();
+getBbslist(0);	// 초기화면을 보여주기위해서 실행해줘야된다. 0값은 초기 + 1 값
+getBbsCount();  // 글의 총수 검색어를 실행
 
 function getBbslist( page ) {
 	let choice = $("#_choice").val();
@@ -89,8 +89,9 @@ function getBbslist( page ) {
 	$.ajax({
 		url:'http://localhost:3000/bbslist',
 		type:"get",
+		// 이 값을 가지고 controller 부분에 전달한다.
 		data:{ 'choice':choice, 'search':search, 'page':page },
-		success:function(list){
+		success:function(list){	// controller에서 list를 리턴 받는다.
 		//	alert('success');
 			// session
 		//	let login = JSON.parse(sessionStorage.getItem("login"));
@@ -110,8 +111,8 @@ function getBbslist( page ) {
 				$("#blist").append(str);
 			}
 		*/
-			$("#blist").html("");
-			$.each(list, function (i, item) {
+			$("#blist").html("");	// 중복을 제거하기 위함
+			$.each(list, function (i, item) {	// 키, 값
 				let str = "<tr>";
 				str += "<td>" + (i + 1) + "</td>";
 				

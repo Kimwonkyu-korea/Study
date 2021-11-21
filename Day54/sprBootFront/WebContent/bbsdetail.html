@@ -82,8 +82,8 @@ function getBbs() {
 			// login한 id와 다를 때는 수정과 삭제를 할 수 없도록 처리  
 			let login = JSON.parse(sessionStorage.getItem("login"));
 			if(data.id != login.id){
-				$("#updatebbs").hide(); // 나타내지 말아라
-				$("#deletebbs").hide();
+				$("#bbsupdate").hide(); // 나타내지 말아라
+				$("#bbsdelete").hide();
 			}
 		},
 		error:function(){

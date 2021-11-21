@@ -81,6 +81,21 @@
 	          <artifactId>ojdbc6</artifactId>
 	          <version>11.2.0.4</version>
 	      </dependency>
+	      
+	      <!-- Chatbot -->
+	    <dependency>
+	   		<groupId>org.json</groupId>
+	    	<artifactId>json</artifactId>
+	   		<version>20180813</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>net.morimekta.utils</groupId>
+			<artifactId>android-util</artifactId>
+			<version>2.7.1</version>
+		</dependency>
+	
+	      
 	</dependencies>
 		
 	<build>
@@ -90,6 +105,7 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
-	</build> 
+	</build>
+	
 
 </project>
